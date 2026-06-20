@@ -10,6 +10,19 @@ moment you add credentials.
 
 ---
 
+## ✦ Live-Vorschau (1-Tipp Deploy)
+
+Tippe den Button an — Vercel klont diesen Branch, baut ihn und gibt dir eine
+echte `https://…vercel.app`-URL (läuft im Demo-Modus, **ohne** Konfiguration):
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Din66w/Fivem-FREE-cheat/tree/claude/nox-reselling-website-zer1qh&project-name=nox-store&repository-name=nox-store)
+
+Ablauf am iPhone: Button → mit GitHub einloggen → **Deploy** → nach ~1 Min die
+`.vercel.app`-Adresse öffnen. Shopify-Token kannst du später in den Vercel
+Project-Settings (Environment Variables) ergänzen, um live zu gehen.
+
+---
+
 ## ✦ Tech stack
 
 | | |
