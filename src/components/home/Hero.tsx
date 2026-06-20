@@ -14,7 +14,7 @@ export function Hero() {
         <div className="absolute left-1/2 top-[-10%] h-[70vh] w-[140vw] -translate-x-1/2 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.10),transparent_60%)]" />
       </div>
 
-      <div className="nox-container relative flex flex-col items-center py-28">
+      <div className="nox-container relative flex flex-col items-center px-6 py-32 sm:py-36 lg:py-40">
         <motion.p
           className="nox-eyebrow"
           initial={{ opacity: 0, y: 12 }}
@@ -25,7 +25,7 @@ export function Hero() {
         </motion.p>
 
         <motion.h1
-          className="mt-8 font-display text-[34vw] font-black uppercase leading-[0.82] tracking-tightest text-bone sm:text-[26vw] lg:text-[20rem]"
+          className="mt-10 font-display text-[32vw] font-black uppercase leading-[0.8] tracking-tightest text-bone sm:mt-12 sm:text-[24vw] lg:text-[19rem]"
           initial={{ opacity: 0, y: 28, filter: 'blur(8px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 1, ease, delay: 0.05 }}
@@ -34,7 +34,7 @@ export function Hero() {
         </motion.h1>
 
         <motion.p
-          className="mt-2 text-base lowercase tracking-[0.3em] text-bone-muted sm:text-lg"
+          className="mt-6 text-sm lowercase tracking-[0.34em] text-bone-muted sm:mt-8 sm:text-lg"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease, delay: 0.2 }}
@@ -42,11 +42,19 @@ export function Hero() {
           clean pieces only.
         </motion.p>
 
+        {/* hairline accent */}
         <motion.div
-          className="mt-12 flex flex-col items-center gap-3 sm:flex-row"
+          className="mt-10 h-px w-16 bg-bone/25"
+          initial={{ opacity: 0, scaleX: 0 }}
+          animate={{ opacity: 1, scaleX: 1 }}
+          transition={{ duration: 0.8, ease, delay: 0.28 }}
+        />
+
+        <motion.div
+          className="mt-10 flex w-full max-w-md flex-col items-center gap-3 sm:w-auto sm:flex-row sm:gap-4"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease, delay: 0.32 }}
+          transition={{ duration: 0.7, ease, delay: 0.4 }}
         >
           <Link
             href="/shop"

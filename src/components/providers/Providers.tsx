@@ -8,6 +8,7 @@ import { UIProvider } from '@/context/UIContext';
 import { CartDrawer } from '@/components/cart/CartDrawer';
 import { QuickView } from '@/components/product/QuickView';
 import { NewsletterPopup } from '@/components/common/NewsletterPopup';
+import { LoadingScreen } from '@/components/common/LoadingScreen';
 
 /**
  * Composes every client-side provider and mounts the global overlays
@@ -20,6 +21,7 @@ export function Providers({ children }: { children: ReactNode }) {
         <RecentlyViewedProvider>
           <CartProvider>
             {children}
+            <LoadingScreen />
             <CartDrawer />
             <QuickView />
             <NewsletterPopup />

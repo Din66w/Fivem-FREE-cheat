@@ -20,7 +20,7 @@ export function MobileMenu() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.25 }}
         >
-          <div className="nox-container flex h-16 items-center justify-between border-b border-ink-600">
+          <div className="nox-container flex h-20 items-center justify-between border-b border-ink-600">
             <Logo />
             <button type="button" onClick={closeMobileMenu} aria-label="Close menu" className="text-bone">
               <CloseIcon className="h-6 w-6" />

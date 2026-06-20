@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
  * Shown as-is: the image's black corners blend into the black header,
  * so it reads as a clean circular badge. Minimalist premium look.
  */
-export function Logo({ className, size = 48 }: { className?: string; size?: number }) {
+export function Logo({ className, size = 60 }: { className?: string; size?: number }) {
   return (
     <Link
       href="/"

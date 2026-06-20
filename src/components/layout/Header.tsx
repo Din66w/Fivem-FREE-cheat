@@ -34,7 +34,7 @@ export function Header() {
             : 'border-transparent bg-ink',
         )}
       >
-        <div className="nox-container flex h-16 items-center justify-between gap-4 lg:h-20">
+        <div className="nox-container flex h-20 items-center justify-between gap-4 lg:h-24">
           {/* Left: mobile menu + desktop nav */}
           <div className="flex flex-1 items-center gap-8">
             <button
