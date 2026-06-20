@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #f5f5f3;
+
+  /* Typography. System stacks keep the build offline-safe and fast.
+     To upgrade, drop in `next/font` and point these vars at it. */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-display: 'Archivo', 'Helvetica Neue', var(--font-sans);
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas,
+    'Liberation Mono', monospace;
+}
+
+@layer base {
+  * {
+    @apply border-ink-600;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-ink text-bone font-sans antialiased;
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  ::selection {
+    @apply bg-bone text-ink;
+  }
+
+  /* Minimal monochrome scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #262626;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3a3a3a;
+  }
+}
+
+@layer components {
+  .nox-container {
+    @apply mx-auto w-full max-w-nox px-5 sm:px-8 lg:px-12;
+  }
+
+  .nox-eyebrow {
+    @apply text-[11px] font-medium uppercase tracking-brand text-ash;
+  }
+
+  /* Underline-on-hover link used across nav and footer */
+  .nox-link {
+    @apply relative inline-block transition-colors duration-300 ease-nox;
+  }
+  .nox-link::after {
+    content: '';
+    @apply absolute -bottom-0.5 left-0 h-px w-0 bg-current transition-all duration-300 ease-nox;
+  }
+  .nox-link:hover::after {
+    @apply w-full;
+  }
+
+  .nox-skeleton {
+    @apply relative overflow-hidden bg-ink-700;
+  }
+  .nox-skeleton::after {
+    content: '';
+    @apply absolute inset-0 -translate-x-full animate-shimmer
+      bg-gradient-to-r from-transparent via-white/5 to-transparent;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  /* Hide scrollbar but keep scrolling (horizontal rails) */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
