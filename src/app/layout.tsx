@@ -1,6 +1,28 @@
 import type { Metadata, Viewport } from 'next';
+import { Inter, Archivo, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { SITE } from '@/lib/config';
+
+// Premium type system. Archivo (heavy grotesque) for the wordmark &
+// headlines, Inter for body/UI, JetBrains Mono for the drop countdown.
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  display: 'swap',
+});
+
+const archivo = Archivo({
+  subsets: ['latin'],
+  weight: ['600', '700', '800', '900'],
+  variable: '--font-display',
+  display: 'swap',
+});
+
+const mono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+  display: 'swap',
+});
 import { Providers } from '@/components/providers/Providers';
 import { AnnouncementBar } from '@/components/layout/AnnouncementBar';
 import { Header } from '@/components/layout/Header';
@@ -48,7 +70,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${archivo.variable} ${mono.variable}`}>
       <body>
         <Providers>
           <AnnouncementBar />

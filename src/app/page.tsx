@@ -5,9 +5,10 @@ import {
   getTrendingProducts,
 } from '@/lib/products';
 import { Hero } from '@/components/home/Hero';
+import { TrustSection } from '@/components/home/TrustSection';
 import { CategoryStrip } from '@/components/home/CategoryStrip';
-import { FeaturedProducts } from '@/components/home/FeaturedProducts';
 import { NewArrivals } from '@/components/home/NewArrivals';
+import { FeaturedProducts } from '@/components/home/FeaturedProducts';
 import { Trending } from '@/components/home/Trending';
 import { NewsletterSection } from '@/components/home/NewsletterSection';
 import { SocialSection } from '@/components/home/SocialSection';
@@ -27,9 +28,10 @@ export default async function HomePage() {
   return (
     <>
       <Hero />
-      <CategoryStrip />
-      <FeaturedProducts products={featured} />
+      <TrustSection />
       <NewArrivals products={arrivals} />
+      <FeaturedProducts products={featured} />
+      <CategoryStrip />
       <Trending products={trending} />
       <SocialSection />
       <RecentlyViewed pool={all} />

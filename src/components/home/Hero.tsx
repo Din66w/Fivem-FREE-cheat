@@ -8,73 +8,69 @@ const ease = [0.16, 1, 0.3, 1] as const;
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-ink-600 bg-ink">
-      {/* Subtle radial light + grain feel via gradients */}
+    <section className="relative flex min-h-[92vh] flex-col items-center justify-center overflow-hidden border-b border-ink-600 bg-ink text-center">
+      {/* Soft radial light from the top — premium depth on pure black */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-0 h-[60vh] w-[120vw] -translate-x-1/2 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.08),transparent_60%)]" />
+        <div className="absolute left-1/2 top-[-10%] h-[70vh] w-[140vw] -translate-x-1/2 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.10),transparent_60%)]" />
       </div>
 
-      <div className="nox-container relative flex min-h-[88vh] flex-col justify-center py-24">
+      <div className="nox-container relative flex flex-col items-center py-28">
         <motion.p
           className="nox-eyebrow"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease }}
         >
-          Curated streetwear &amp; vintage
+          Premium reselling — curated streetwear &amp; vintage
         </motion.p>
 
         <motion.h1
-          className="mt-5 max-w-5xl font-display text-[15vw] font-extrabold uppercase leading-[0.85] tracking-tightest text-bone sm:text-[12vw] lg:text-[10rem]"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease, delay: 0.05 }}
+          className="mt-8 font-display text-[34vw] font-black uppercase leading-[0.82] tracking-tightest text-bone sm:text-[26vw] lg:text-[20rem]"
+          initial={{ opacity: 0, y: 28, filter: 'blur(8px)' }}
+          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          transition={{ duration: 1, ease, delay: 0.05 }}
         >
-          When the
-          <br />
-          cold hits,
-          <br />
-          <span className="text-ash">everything</span>
-          <br />
-          goes quiet.
+          NOX
         </motion.h1>
 
-        <motion.div
-          className="mt-10 flex flex-col items-start gap-6 sm:flex-row sm:items-center"
+        <motion.p
+          className="mt-2 text-base lowercase tracking-[0.3em] text-bone-muted sm:text-lg"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease, delay: 0.25 }}
+          transition={{ duration: 0.7, ease, delay: 0.2 }}
         >
-          <p className="max-w-md text-sm leading-relaxed text-bone-muted">
-            Handpicked streetwear, designer, football shirts and Y2K grails.
-            One-of-one pieces, authenticated and clean. Engineered for the few,
-            not the crowd.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <Link
-              href="/shop"
-              className="group inline-flex h-14 items-center gap-2 bg-bone px-9 text-sm font-medium uppercase tracking-[0.18em] text-ink transition-colors hover:bg-white"
-            >
-              Shop now
-              <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-            <Link
-              href="/shop?sort=trending"
-              className="inline-flex h-14 items-center border border-bone/30 px-9 text-sm font-medium uppercase tracking-[0.18em] text-bone transition-colors hover:border-bone"
-            >
-              Trending
-            </Link>
-          </div>
+          clean pieces only.
+        </motion.p>
+
+        <motion.div
+          className="mt-12 flex flex-col items-center gap-3 sm:flex-row"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease, delay: 0.32 }}
+        >
+          <Link
+            href="/shop"
+            className="group inline-flex h-14 w-full items-center justify-center gap-2 bg-bone px-10 text-sm font-medium uppercase tracking-[0.2em] text-ink transition-colors hover:bg-bone-muted sm:w-auto"
+          >
+            Shop Now
+            <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Link>
+          <Link
+            href="/shop?sort=newest"
+            className="inline-flex h-14 w-full items-center justify-center border border-bone/30 px-10 text-sm font-medium uppercase tracking-[0.2em] text-bone transition-colors hover:border-bone sm:w-auto"
+          >
+            Latest Drop
+          </Link>
         </motion.div>
       </div>
 
       {/* Bottom marquee strip */}
-      <div className="overflow-hidden border-t border-ink-600 py-4">
+      <div className="absolute inset-x-0 bottom-0 overflow-hidden border-t border-ink-600 py-4">
         <div className="flex animate-marquee whitespace-nowrap">
-          {Array.from({ length: 8 }).map((_, i) => (
+          {Array.from({ length: 10 }).map((_, i) => (
             <span
               key={i}
-              className="mx-6 font-display text-2xl font-bold uppercase tracking-tightest text-ink-600"
+              className="mx-6 font-display text-xl font-bold uppercase tracking-tightest text-ink-600"
             >
               NOX — clean pieces only —
             </span>

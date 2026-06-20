@@ -9,19 +9,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // NOX monochrome system — black / white / gray only.
+        // NOX monochrome system — pure black / white + grays only.
         ink: {
-          DEFAULT: '#0a0a0a',
-          900: '#0d0d0d',
-          800: '#141414',
-          700: '#1c1c1c',
-          600: '#262626',
+          DEFAULT: '#000000', // page background
+          900: '#050505', // raised surfaces / footer
+          800: '#0c0c0c', // cards / image wells
+          700: '#161616', // hover surfaces
+          600: '#1f1f1f', // hairline borders
         },
         bone: {
-          DEFAULT: '#f5f5f3',
-          muted: '#d4d4d2',
+          DEFAULT: '#ffffff', // primary text
+          muted: '#b3b3b3', // secondary text
         },
-        ash: '#8a8a88',
+        ash: '#6b6b6b', // tertiary / eyebrow text
       },
       fontFamily: {
         sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],

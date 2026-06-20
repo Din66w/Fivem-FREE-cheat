@@ -96,6 +96,14 @@ export function ProductCard({ product, priority, className }: ProductCardProps) 
           )}
         </div>
       </div>
+
+      {/* Sizes directly visible */}
+      <p className="mt-2 truncate text-[11px] uppercase tracking-[0.14em] text-ash">
+        {product.variants
+          .filter((v) => v.available)
+          .map((v) => v.size)
+          .join('  ·  ') || 'Sold out'}
+      </p>
     </motion.article>
   );
 }

@@ -20,9 +20,16 @@ export const NAV_LINKS = [
 ] as const;
 
 export const SOCIALS = [
-  { label: 'Instagram', handle: '@nox', href: 'https://instagram.com' },
-  { label: 'TikTok', handle: '@nox', href: 'https://tiktok.com' },
+  { label: 'TikTok', handle: '@nox', href: 'https://tiktok.com/@nox' },
+  { label: 'Instagram', handle: '@nox', href: 'https://instagram.com/nox' },
   { label: 'Email', handle: 'hello@nox.store', href: 'mailto:hello@nox.store' },
+] as const;
+
+export const FOOTER_LINKS = [
+  { label: 'Shop', href: '/shop' },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
+  { label: 'FAQ', href: '/faq' },
 ] as const;
 
 export const FOOTER_COLUMNS = [
