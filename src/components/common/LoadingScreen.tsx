@@ -32,7 +32,7 @@ export function LoadingScreen() {
       } catch {
         /* ignore */
       }
-    }, 1700);
+    }, 1150);
 
     return () => {
       clearTimeout(t);

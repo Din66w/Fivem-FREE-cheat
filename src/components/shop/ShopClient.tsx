@@ -41,24 +41,35 @@ export function ShopClient({ products, facets, initialFilters }: ShopClientProps
   return (
     <div className="nox-container py-10 lg:py-14">
       {/* Page head */}
-      <div className="mb-8 flex flex-col gap-6 border-b border-ink-600 pb-8 lg:flex-row lg:items-end lg:justify-between">
-        <div>
-          <p className="nox-eyebrow mb-3">The archive</p>
-          <h1 className="font-display text-4xl font-semibold uppercase tracking-tightest text-bone sm:text-5xl">
-            Shop All
-          </h1>
+      <div className="mb-10 border-b border-ink-600 pb-8">
+        <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.25em] text-ash">
+          <span>[ Catalog — full archive ]</span>
+          <span className="tabular-nums">
+            {filtered.length} {filtered.length === 1 ? 'piece' : 'pieces'}
+          </span>
         </div>
+        <div className="mt-6 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <h1 className="font-display text-5xl font-black uppercase leading-[0.85] tracking-tightest text-bone sm:text-6xl lg:text-7xl">
+              The Archive
+            </h1>
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-bone-muted">
+              Every piece authenticated and one-of-one — curated streetwear, vintage,
+              designer &amp; Y2K.
+            </p>
+          </div>
 
-        {/* Search */}
-        <div className="flex w-full max-w-md items-center gap-3 border border-ink-600 px-4 focus-within:border-bone lg:w-80">
-          <SearchIcon className="h-4 w-4 text-ash" />
-          <input
-            type="search"
-            value={filters.query ?? ''}
-            onChange={(e) => setFilters({ ...filters, query: e.target.value })}
-            placeholder="Search brand, piece, tag…"
-            className="h-11 w-full bg-transparent text-sm text-bone placeholder:text-ash focus:outline-none"
-          />
+          {/* Search */}
+          <div className="flex w-full max-w-md items-center gap-3 border border-ink-600 px-4 focus-within:border-bone lg:w-80">
+            <SearchIcon className="h-4 w-4 text-ash" />
+            <input
+              type="search"
+              value={filters.query ?? ''}
+              onChange={(e) => setFilters({ ...filters, query: e.target.value })}
+              placeholder="Search brand, piece, tag…"
+              className="h-11 w-full bg-transparent text-sm text-bone placeholder:text-ash focus:outline-none"
+            />
+          </div>
         </div>
       </div>
 
@@ -76,9 +87,6 @@ export function ShopClient({ products, facets, initialFilters }: ShopClientProps
             >
               Filters
             </button>
-            <p className="hidden text-xs uppercase tracking-[0.15em] text-ash sm:block">
-              {filtered.length} {filtered.length === 1 ? 'piece' : 'pieces'}
-            </p>
             <div className="ml-auto flex items-center gap-3">
               <label className="hidden text-xs uppercase tracking-[0.15em] text-ash sm:block">
                 Sort
