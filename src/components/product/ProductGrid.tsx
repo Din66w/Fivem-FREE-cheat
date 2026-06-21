@@ -24,7 +24,7 @@ export function ProductGrid({ products, className, priorityCount = 0 }: ProductG
   return (
     <div
       className={cn(
-        'grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-3 lg:gap-x-6 xl:grid-cols-4',
+        'grid grid-cols-2 gap-x-4 gap-y-12 sm:gap-x-5 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-16 xl:grid-cols-4',
         className,
       )}
     >

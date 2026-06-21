@@ -56,17 +56,17 @@ export function Hero({ products }: { products: Product[] }) {
             </p>
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row lg:items-start">
               <Link
-                href="/shop"
+                href="/shop?sort=newest"
                 className="group inline-flex h-14 w-full items-center justify-center gap-2 bg-bone px-9 text-xs font-semibold uppercase tracking-[0.22em] text-ink transition-colors hover:bg-bone-muted sm:w-auto"
               >
-                Shop Now
+                Shop New Arrivals
                 <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
-                href="/shop?sort=newest"
+                href="/shop?sort=trending"
                 className="inline-flex h-14 w-full items-center justify-center border border-bone/30 px-9 text-xs font-semibold uppercase tracking-[0.22em] text-bone transition-colors hover:border-bone hover:bg-bone hover:text-ink sm:w-auto"
               >
-                Latest Drop
+                View Drop
               </Link>
             </div>
           </motion.div>
@@ -89,7 +89,7 @@ export function Hero({ products }: { products: Product[] }) {
                   fill
                   priority
                   sizes="(min-width:1024px) 45vw, 100vw"
-                  className="object-cover grayscale transition-all duration-[1100ms] ease-nox group-hover:scale-[1.03] group-hover:grayscale-0"
+                  className="object-cover object-top grayscale transition-all duration-[1100ms] ease-nox group-hover:scale-[1.03] group-hover:grayscale-0"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-transparent" />
               </div>
@@ -160,7 +160,7 @@ export function Hero({ products }: { products: Product[] }) {
                       alt={p.images[0].altText || p.title}
                       fill
                       sizes="(min-width:1024px) 22vw, 33vw"
-                      className="object-cover grayscale transition-all duration-[900ms] ease-nox group-hover:scale-[1.04] group-hover:grayscale-0"
+                      className="object-cover object-top grayscale transition-all duration-[900ms] ease-nox group-hover:scale-[1.04] group-hover:grayscale-0"
                     />
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-transparent" />
                     <div className="absolute inset-x-0 bottom-0 p-3">
