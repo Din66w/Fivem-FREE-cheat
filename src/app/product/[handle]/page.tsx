@@ -87,22 +87,26 @@ export default async function ProductPage({ params }: PageProps) {
           <span className="text-bone-muted">{product.title}</span>
         </nav>
 
-        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
           <ImageGallery images={product.images} title={product.title} />
 
-          <div className="lg:py-4">
+          <div className="lg:sticky lg:top-28 lg:self-start lg:py-2">
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="nox-eyebrow">{product.brand}</p>
-                <h1 className="mt-2 font-display text-3xl font-semibold uppercase tracking-tightest text-bone sm:text-4xl">
+                <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-ash">
+                  {product.id.toUpperCase()} — {product.brand}
+                </p>
+                <h1 className="mt-3 font-display text-4xl font-black uppercase leading-[0.9] tracking-tightest text-bone sm:text-5xl">
                   {product.title}
                 </h1>
               </div>
               <WishlistButton handle={product.handle} className="mt-1 shrink-0" />
             </div>
 
-            <div className="mt-4 flex items-center gap-3">
-              <span className="text-xl text-bone">{formatMoney(product.price)}</span>
+            <div className="mt-5 flex items-center gap-3">
+              <span className="font-display text-2xl font-bold tabular-nums text-bone">
+                {formatMoney(product.price)}
+              </span>
               {product.compareAtPrice && (
                 <span className="text-base text-ash line-through">
                   {formatMoney(product.compareAtPrice)}
