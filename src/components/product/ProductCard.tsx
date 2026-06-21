@@ -61,9 +61,6 @@ export function ProductCard({ product, priority, className }: ProductCardProps) 
             </div>
           )}
 
-          {/* Depth veil for badge / button legibility */}
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-ink/20 opacity-70" />
-
           {/* Badges */}
           <div className="absolute left-0 top-3 flex flex-col gap-1.5">
             <span className="bg-bone px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.18em] text-ink">
