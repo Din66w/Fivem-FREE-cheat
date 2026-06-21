@@ -37,7 +37,7 @@ export function ProductCard({ product, priority, className }: ProductCardProps) 
             sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 100vw"
             priority={priority}
             className={cn(
-              'object-cover grayscale transition-all duration-700 ease-nox',
+              'object-cover object-top grayscale transition-all duration-700 ease-nox',
               soldOut ? 'opacity-60' : 'group-hover:scale-[1.03] group-hover:opacity-0',
             )}
           />
@@ -48,7 +48,7 @@ export function ProductCard({ product, priority, className }: ProductCardProps) 
               aria-hidden
               fill
               sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 100vw"
-              className="scale-105 object-cover opacity-0 transition-all duration-[900ms] ease-nox group-hover:scale-100 group-hover:opacity-100"
+              className="scale-105 object-cover object-top opacity-0 transition-all duration-[900ms] ease-nox group-hover:scale-100 group-hover:opacity-100"
             />
           )}
 
