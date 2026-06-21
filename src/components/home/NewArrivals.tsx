@@ -6,7 +6,7 @@ export function NewArrivals({ products }: { products: Product[] }) {
   if (!products.length) return null;
   return (
     <section className="border-y border-ink-600 bg-ink-900">
-      <div className="nox-container py-16 lg:py-24">
+      <div className="nox-container py-20 lg:py-28">
         <SectionHeading
           eyebrow="Just landed"
           title="New Arrivals"

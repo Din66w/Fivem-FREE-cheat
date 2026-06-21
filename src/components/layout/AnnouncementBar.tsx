@@ -14,6 +14,10 @@ function getRemaining(target: number) {
 
 const pad = (n: number) => n.toString().padStart(2, '0');
 
+/**
+ * Slim, dark, centered announcement bar — restrained and premium
+ * (no busy white ticker). Shows the next-drop date + a live countdown.
+ */
 export function AnnouncementBar() {
   const target = new Date(SITE.dropDate).getTime();
   const [t, setT] = useState<ReturnType<typeof getRemaining> | null>(null);
@@ -24,36 +28,23 @@ export function AnnouncementBar() {
     return () => clearInterval(id);
   }, [target]);
 
-  // One announcement string repeated to build a seamless marquee.
-  const message =
+  const countdown =
     t && (t.d || t.h || t.m || t.s)
-      ? `${SITE.announcement}  •  ${t.d}D ${pad(t.h)}:${pad(t.m)}:${pad(t.s)} REMAINING`
-      : SITE.announcement;
+      ? `${t.d}d ${pad(t.h)}:${pad(t.m)}:${pad(t.s)}`
+      : null;
 
   return (
-    <div className="border-b border-ink-600 bg-bone text-ink">
-      <div className="flex overflow-hidden whitespace-nowrap py-2">
-        <div className="flex shrink-0 animate-marquee items-center">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <span
-              key={i}
-              className="mx-6 font-mono text-[11px] font-medium uppercase tracking-[0.2em]"
-              aria-hidden={i !== 0}
-            >
-              {message}
-            </span>
-          ))}
-        </div>
-        <div className="flex shrink-0 animate-marquee items-center" aria-hidden>
-          {Array.from({ length: 6 }).map((_, i) => (
-            <span
-              key={i}
-              className="mx-6 font-mono text-[11px] font-medium uppercase tracking-[0.2em]"
-            >
-              {message}
-            </span>
-          ))}
-        </div>
+    <div className="border-b border-ink-600 bg-ink">
+      <div className="nox-container flex h-9 items-center justify-center gap-3 text-[10px] uppercase tracking-[0.28em] text-bone-muted sm:text-[11px]">
+        <span className="hidden sm:inline">NOX Drop</span>
+        <span className="hidden text-ink-600 sm:inline">/</span>
+        <span className="font-mono tracking-[0.2em] text-bone">01.01.2027 · 00:00</span>
+        {countdown && (
+          <>
+            <span className="text-ink-600">/</span>
+            <span className="font-mono tabular-nums tracking-[0.15em] text-ash">{countdown}</span>
+          </>
+        )}
       </div>
     </div>
   );
