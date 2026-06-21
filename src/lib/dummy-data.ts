@@ -8,8 +8,17 @@ import type { Product } from './types';
 // just connect Shopify) and everything else keeps working.
 // ──────────────────────────────────────────────────────────────
 
+// Local, on-brand editorial placeholders (served from /public) — always
+// load instantly, no flaky external image service. Swap the `url` for your
+// Shopify CDN / real product photos when ready.
+function pickPlaceholder(seed: string): string {
+  let n = 0;
+  for (let i = 0; i < seed.length; i += 1) n = (n + seed.charCodeAt(i)) % 6;
+  return `/ph/${n + 1}.svg`;
+}
+
 const image = (seed: string) => ({
-  url: `https://picsum.photos/seed/nox-${seed}/900/1200`,
+  url: pickPlaceholder(seed),
   altText: '',
   width: 900,
   height: 1200,
