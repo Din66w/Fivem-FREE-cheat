@@ -48,7 +48,7 @@ export function SocialSection() {
                 className="group relative block aspect-[9/16] overflow-hidden bg-ink-800"
               >
                 <Image
-                  src={`/ph/${(i % 6) + 1}.svg`}
+                  src={`/products/p${(i % 15) + 1}.jpg`}
                   alt="NOX on TikTok"
                   fill
                   loading="lazy"

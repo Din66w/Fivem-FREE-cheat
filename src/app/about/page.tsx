@@ -52,7 +52,7 @@ export default function AboutPage() {
         <Reveal>
           <div className="relative aspect-[4/5] overflow-hidden bg-ink-800">
             <Image
-              src="/ph/2.svg"
+              src="/products/p6.jpg"
               alt="NOX curated rail"
               fill
               sizes="(min-width:1024px) 50vw, 100vw"
