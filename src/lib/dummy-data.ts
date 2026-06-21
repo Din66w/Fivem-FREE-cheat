@@ -1,30 +1,32 @@
-import type { Product } from './types';
+import type { Category, Product } from './types';
 
 // ──────────────────────────────────────────────────────────────
 // Demo catalog — used whenever Shopify credentials are absent.
 //
-// Images use deterministic picsum seeds so the build is fully
-// offline-friendly. Swap `image()` for your Shopify CDN URLs (or
-// just connect Shopify) and everything else keeps working.
+// Real apparel/editorial photography, served locally from
+// /public/products. Images are pooled BY CATEGORY so a piece never
+// shows an unrelated garment (e.g. a football shirt maps to a jersey
+// shot, denim to a denim shot). Swap for your own product shots /
+// Shopify CDN when ready and this whole layer drops out.
 // ──────────────────────────────────────────────────────────────
 
-// Real apparel/editorial photography, served locally from /public/products
-// (loads instantly and reliably). Each seed maps deterministically to one of
-// the images, so a product's views differ. Swap for your own product shots /
-// Shopify CDN when ready.
-const PRODUCT_IMAGE_COUNT = 15;
-function pickImage(seed: string): string {
-  let n = 0;
-  for (let i = 0; i < seed.length; i += 1) n = (n + seed.charCodeAt(i)) % PRODUCT_IMAGE_COUNT;
-  return `/products/p${n + 1}.jpg`;
-}
+// Curated pools — values are file indices in /public/products (pN.jpg).
+// Editorial model + rack shots read as styled looks for any piece.
+const IMAGES_BY_CATEGORY: Record<Category, number[]> = {
+  Streetwear: [1, 6, 7, 11],
+  Vintage: [2, 9, 4, 3],
+  Designer: [3, 13, 1, 11],
+  'Football Shirts': [16, 2, 9],
+  Y2K: [8, 11, 6],
+  Accessories: [2, 9, 4],
+};
 
-const image = (seed: string) => ({
-  url: pickImage(seed),
-  altText: '',
-  width: 900,
-  height: 1200,
-});
+function pickImage(category: Category, seed: string, idx: number): string {
+  const pool = IMAGES_BY_CATEGORY[category] ?? [2, 9, 1];
+  let n = idx;
+  for (let i = 0; i < seed.length; i += 1) n += seed.charCodeAt(i);
+  return `/products/p${pool[n % pool.length]}.jpg`;
+}
 
 const GBP = 'GBP';
 
@@ -42,8 +44,10 @@ function p(
     price: { amount: price, currencyCode: GBP },
     compareAtPrice: compareAt ? { amount: compareAt, currencyCode: GBP } : undefined,
     images: imageSeeds.map((s, i) => ({
-      ...image(s),
-      altText: `${rest.title} — view ${i + 1}`,
+      url: pickImage(rest.category, s, i),
+      altText: `${rest.title} — ${rest.brand}`,
+      width: 900,
+      height: 1200,
     })),
     variants: sizes.map((size, i) => ({
       id: `${rest.id}-v${i}`,
