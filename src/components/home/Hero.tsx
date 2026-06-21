@@ -121,7 +121,7 @@ export function Hero({ products }: { products: Product[] }) {
                 type="button"
                 onClick={() => openQuickView(feature)}
                 aria-label="Quick add"
-                className="group absolute -bottom-5 right-5 grid h-16 w-16 place-items-center rounded-full border border-bone/40 bg-ink text-bone transition-colors hover:bg-bone hover:text-ink"
+                className="group absolute bottom-5 right-5 grid h-14 w-14 place-items-center rounded-full border border-bone/40 bg-ink/70 text-bone backdrop-blur transition-colors hover:bg-bone hover:text-ink"
               >
                 <ArrowRightIcon className="h-5 w-5 -rotate-45 transition-transform group-hover:rotate-0" />
               </button>

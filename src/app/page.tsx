@@ -31,8 +31,8 @@ export default async function HomePage() {
     <>
       {/* Product-forward hero: branding + drop countdown + featured pieces */}
       <Hero products={featured} />
-      <NewArrivals products={arrivals} />
       <TrustSection />
+      <NewArrivals products={arrivals} />
       <CategoryStrip />
       <BrandStatement />
       <Trending products={trending} />
