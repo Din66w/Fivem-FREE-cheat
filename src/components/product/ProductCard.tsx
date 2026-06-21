@@ -37,8 +37,8 @@ export function ProductCard({ product, priority, className }: ProductCardProps) 
             sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 100vw"
             priority={priority}
             className={cn(
-              'object-cover transition-opacity duration-700 ease-nox',
-              soldOut ? 'opacity-60 grayscale' : 'group-hover:opacity-0',
+              'object-cover grayscale transition-all duration-700 ease-nox',
+              soldOut ? 'opacity-60' : 'group-hover:scale-[1.03] group-hover:opacity-0',
             )}
           />
           {!soldOut && (

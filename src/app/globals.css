@@ -57,7 +57,7 @@
   }
 
   .nox-eyebrow {
-    @apply text-[11px] font-medium uppercase tracking-brand text-ash;
+    @apply font-mono text-[11px] uppercase tracking-[0.25em] text-ash;
   }
 
   /* Underline-on-hover link used across nav and footer */
