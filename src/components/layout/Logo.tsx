@@ -3,11 +3,10 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
 /**
- * NOX brand mark (public/nox-logo.jpg) — white disc, black script.
- * Shown as-is: the image's black corners blend into the black header,
- * so it reads as a clean circular badge. Minimalist premium look.
+ * NOX wordmark — the white cursive script on transparent, so it reads
+ * clean on the black header (no disc/badge). Minimal, premium.
  */
-export function Logo({ className, size = 60 }: { className?: string; size?: number }) {
+export function Logo({ className }: { className?: string }) {
   return (
     <Link
       href="/"
@@ -15,13 +14,12 @@ export function Logo({ className, size = 60 }: { className?: string; size?: numb
       className={cn('group inline-flex items-center', className)}
     >
       <Image
-        src="/nox-logo.jpg"
+        src="/nox-logo-white.png"
         alt="NOX"
-        width={size}
-        height={size}
+        width={846}
+        height={380}
         priority
-        className="rounded-full transition-opacity duration-300 group-hover:opacity-80"
-        style={{ width: size, height: size }}
+        className="h-7 w-auto transition-opacity duration-300 group-hover:opacity-80 sm:h-8"
       />
     </Link>
   );
