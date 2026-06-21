@@ -50,7 +50,7 @@ export function TrustSection() {
       <div className="nox-container grid grid-cols-2 gap-px overflow-hidden bg-ink-600 lg:grid-cols-4">
         {ITEMS.map(({ Icon, title, body }, i) => (
           <Reveal key={title} index={i}>
-            <div className="flex h-full flex-col items-center gap-4 bg-ink-900 px-6 py-10 text-center lg:py-14">
+            <div className="flex h-full flex-col items-center gap-4 bg-ink-900/70 px-6 py-10 text-center backdrop-blur lg:py-14">
               <Icon className="h-7 w-7 text-bone" />
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-bone">

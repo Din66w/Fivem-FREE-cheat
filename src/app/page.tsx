@@ -6,6 +6,8 @@ import {
 } from '@/lib/products';
 import { Hero } from '@/components/home/Hero';
 import { TrustSection } from '@/components/home/TrustSection';
+import { StatsStrip } from '@/components/home/StatsStrip';
+import { BrandStatement } from '@/components/home/BrandStatement';
 import { CategoryStrip } from '@/components/home/CategoryStrip';
 import { NewArrivals } from '@/components/home/NewArrivals';
 import { NextDrop } from '@/components/home/NextDrop';
@@ -33,7 +35,9 @@ export default async function HomePage() {
       <Hero products={featured} />
       <NewArrivals products={arrivals} />
       <TrustSection />
+      <StatsStrip />
       <CategoryStrip />
+      <BrandStatement />
       <Trending products={trending} />
       <NextDrop />
       <BrandMarquee />
