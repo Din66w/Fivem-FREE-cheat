@@ -8,7 +8,6 @@ import { Hero } from '@/components/home/Hero';
 import { TrustSection } from '@/components/home/TrustSection';
 import { CategoryStrip } from '@/components/home/CategoryStrip';
 import { NewArrivals } from '@/components/home/NewArrivals';
-import { FeaturedProducts } from '@/components/home/FeaturedProducts';
 import { NextDrop } from '@/components/home/NextDrop';
 import { Trending } from '@/components/home/Trending';
 import { NewsletterSection } from '@/components/home/NewsletterSection';
@@ -30,15 +29,14 @@ export default async function HomePage() {
 
   return (
     <>
-      <Hero />
-      <TrustSection />
-      <BrandMarquee />
-      <MarbleDivider label="clean pieces only." />
+      {/* Product-forward hero: branding + drop countdown + featured pieces */}
+      <Hero products={featured} />
       <NewArrivals products={arrivals} />
-      <FeaturedProducts products={featured} />
-      <NextDrop />
+      <TrustSection />
       <CategoryStrip />
       <Trending products={trending} />
+      <NextDrop />
+      <BrandMarquee />
       <MarbleDivider label="@nox — follow the feed" />
       <SocialSection />
       <RecentlyViewed pool={all} />
