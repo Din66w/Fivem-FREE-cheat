@@ -13,7 +13,7 @@ export function BrandStatement() {
     <section className="relative overflow-hidden border-y border-ink-600 bg-ink">
       <div className="relative flex min-h-[460px] items-center justify-center py-24 lg:min-h-[70vh]">
         <Image
-          src="/ph/wide.svg"
+          src="/products/p2.jpg"
           alt="NOX archive editorial"
           fill
           sizes="100vw"

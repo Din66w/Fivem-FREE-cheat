@@ -8,17 +8,19 @@ import type { Product } from './types';
 // just connect Shopify) and everything else keeps working.
 // ──────────────────────────────────────────────────────────────
 
-// Local, on-brand editorial placeholders (served from /public) — always
-// load instantly, no flaky external image service. Swap the `url` for your
-// Shopify CDN / real product photos when ready.
-function pickPlaceholder(seed: string): string {
+// Real apparel/editorial photography, served locally from /public/products
+// (loads instantly and reliably). Each seed maps deterministically to one of
+// the images, so a product's views differ. Swap for your own product shots /
+// Shopify CDN when ready.
+const PRODUCT_IMAGE_COUNT = 15;
+function pickImage(seed: string): string {
   let n = 0;
-  for (let i = 0; i < seed.length; i += 1) n = (n + seed.charCodeAt(i)) % 6;
-  return `/ph/${n + 1}.svg`;
+  for (let i = 0; i < seed.length; i += 1) n = (n + seed.charCodeAt(i)) % PRODUCT_IMAGE_COUNT;
+  return `/products/p${n + 1}.jpg`;
 }
 
 const image = (seed: string) => ({
-  url: pickPlaceholder(seed),
+  url: pickImage(seed),
   altText: '',
   width: 900,
   height: 1200,
