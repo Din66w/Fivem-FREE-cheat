@@ -9,6 +9,7 @@ import { CartDrawer } from '@/components/cart/CartDrawer';
 import { QuickView } from '@/components/product/QuickView';
 import { NewsletterPopup } from '@/components/common/NewsletterPopup';
 import { LoadingScreen } from '@/components/common/LoadingScreen';
+import { GrainOverlay } from '@/components/common/GrainOverlay';
 
 /**
  * Composes every client-side provider and mounts the global overlays
@@ -21,6 +22,7 @@ export function Providers({ children }: { children: ReactNode }) {
         <RecentlyViewedProvider>
           <CartProvider>
             {children}
+            <GrainOverlay />
             <LoadingScreen />
             <CartDrawer />
             <QuickView />
