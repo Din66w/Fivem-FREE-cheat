@@ -11,11 +11,11 @@ interface SectionHeadingProps {
 
 export function SectionHeading({ eyebrow, title, href, hrefLabel = 'View all' }: SectionHeadingProps) {
   return (
-    <div className="mb-10 flex items-end justify-between gap-6">
+    <div className="mb-10 flex items-end justify-between gap-6 sm:mb-14">
       <Reveal>
         <div>
           {eyebrow && <p className="nox-eyebrow mb-3">{eyebrow}</p>}
-          <h2 className="font-display text-3xl font-semibold uppercase tracking-tightest text-balance sm:text-4xl lg:text-5xl">
+          <h2 className="font-display text-[2rem] font-bold uppercase leading-[0.95] tracking-tightest text-balance sm:text-4xl lg:text-5xl">
             {title}
           </h2>
         </div>

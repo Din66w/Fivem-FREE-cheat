@@ -1,26 +1,28 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
 /**
- * NOX wordmark. Kept as type (not a raster) so it stays crisp and
- * theme-able. Drop a real logo asset in /public and swap if desired.
+ * NOX brand mark (public/nox-logo.jpg) — white disc, black script.
+ * Shown as-is: the image's black corners blend into the black header,
+ * so it reads as a clean circular badge. Minimalist premium look.
  */
-export function Logo({ className }: { className?: string }) {
+export function Logo({ className, size = 60 }: { className?: string; size?: number }) {
   return (
     <Link
       href="/"
       aria-label="NOX — home"
-      className={cn(
-        'group inline-flex flex-col leading-none',
-        className,
-      )}
+      className={cn('group inline-flex items-center', className)}
     >
-      <span className="font-display text-2xl font-extrabold uppercase tracking-[0.22em] text-bone transition-opacity duration-300 group-hover:opacity-80">
-        NOX
-      </span>
-      <span className="mt-0.5 text-[9px] font-medium lowercase tracking-[0.28em] text-ash">
-        clean pieces only.
-      </span>
+      <Image
+        src="/nox-logo.jpg"
+        alt="NOX"
+        width={size}
+        height={size}
+        priority
+        className="rounded-full transition-opacity duration-300 group-hover:opacity-80"
+        style={{ width: size, height: size }}
+      />
     </Link>
   );
 }

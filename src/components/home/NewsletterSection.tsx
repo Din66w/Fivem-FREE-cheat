@@ -7,11 +7,10 @@ export function NewsletterSection() {
       <div className="nox-container py-20 lg:py-28">
         <div className="mx-auto max-w-2xl text-center">
           <Reveal>
-            <p className="nox-eyebrow">Don&apos;t miss the drop</p>
-            <h2 className="mt-4 font-display text-4xl font-semibold uppercase tracking-tightest text-bone sm:text-5xl">
-              First to know.
-              <br />
-              First to cop.
+            <p className="nox-eyebrow">Join the inner circle</p>
+            <h2 className="mt-4 font-display text-5xl font-bold uppercase tracking-tightest text-bone sm:text-6xl lg:text-7xl">
+              Never miss
+              <br />a drop.
             </h2>
             <p className="mx-auto mt-5 max-w-md text-sm leading-relaxed text-bone-muted">
               Subscribe for early access to drops, restocks and one-of-one grails.
