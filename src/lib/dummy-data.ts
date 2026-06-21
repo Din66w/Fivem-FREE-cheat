@@ -1,35 +1,35 @@
-import type { Category, Product } from './types';
+import type { Product } from './types';
 
 // ──────────────────────────────────────────────────────────────
 // Demo catalog — used whenever Shopify credentials are absent.
 //
-// Real apparel/editorial photography, served locally from
-// /public/products. Images are pooled BY CATEGORY so a piece never
-// shows an unrelated garment (e.g. a football shirt maps to a jersey
-// shot, denim to a denim shot). Swap for your own product shots /
+// Each product maps to a clean technical garment flat (white line on a
+// studio-gray card) in /public/garments, keyed to its ACTUAL garment so
+// a listing always shows the right type — a puffer shows a puffer, a
+// football shirt a jersey, etc. Real lifestyle photography is used only
+// in the editorial/social sections. Swap for your own product shots /
 // Shopify CDN when ready and this whole layer drops out.
 // ──────────────────────────────────────────────────────────────
 
-// Curated pools — values are file indices in /public/products (pN.jpg).
-// Editorial model + rack shots read as styled looks for any piece.
-// pool[0] is the category "hero" shot and is always used as the primary
-// (card / first gallery) image; later views vary for visual interest.
-const IMAGES_BY_CATEGORY: Record<Category, number[]> = {
-  Streetwear: [6, 1, 7, 11],
-  Vintage: [2, 9, 4, 3],
-  Designer: [13, 3, 1, 11],
-  'Football Shirts': [16, 2, 9],
-  Y2K: [8, 11, 6],
-  Accessories: [2, 9, 4],
+// Product id → garment flat (file in /public/garments).
+const GARMENT: Record<string, string> = {
+  'nox-001': 'puffer',
+  'nox-002': 'cargo',
+  'nox-003': 'hoodie',
+  'nox-004': 'tee',
+  'nox-005': 'tee',
+  'nox-006': 'jersey',
+  'nox-007': 'jacket',
+  'nox-008': 'jeans',
+  'nox-009': 'jacket',
+  'nox-010': 'jacket',
+  'nox-011': 'tee',
+  'nox-012': 'cap',
+  'nox-013': 'jersey',
+  'nox-014': 'balaclava',
+  'nox-015': 'bomber',
+  'nox-016': 'hoodie',
 };
-
-function pickImage(category: Category, seed: string, idx: number): string {
-  const pool = IMAGES_BY_CATEGORY[category] ?? [2, 9, 1];
-  if (idx === 0) return `/products/p${pool[0]}.jpg`;
-  let n = idx;
-  for (let i = 0; i < seed.length; i += 1) n += seed.charCodeAt(i);
-  return `/products/p${pool[n % pool.length]}.jpg`;
-}
 
 const GBP = 'GBP';
 
@@ -42,12 +42,14 @@ function p(
   },
 ): Product {
   const { price, compareAt, sizes, imageSeeds, ...rest } = partial;
+  // One clean garment flat per piece, keyed to its actual type.
+  const flat = `/garments/${GARMENT[rest.id] ?? 'tee'}.svg`;
   return {
     ...rest,
     price: { amount: price, currencyCode: GBP },
     compareAtPrice: compareAt ? { amount: compareAt, currencyCode: GBP } : undefined,
-    images: imageSeeds.map((s, i) => ({
-      url: pickImage(rest.category, s, i),
+    images: imageSeeds.slice(0, 1).map(() => ({
+      url: flat,
       altText: `${rest.title} — ${rest.brand}`,
       width: 900,
       height: 1200,
