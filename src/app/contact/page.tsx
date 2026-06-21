@@ -10,12 +10,12 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="nox-container py-16 lg:py-24">
+    <div className="nox-container py-20 lg:py-28">
       <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
         <div>
           <Reveal>
-            <p className="nox-eyebrow">Get in touch</p>
-            <h1 className="mt-5 font-display text-5xl font-extrabold uppercase tracking-tightest text-bone sm:text-6xl">
+            <p className="nox-eyebrow">[ Contact — hello@nox.store ]</p>
+            <h1 className="mt-5 font-display text-5xl font-black uppercase tracking-tightest text-bone sm:text-6xl lg:text-7xl">
               Contact
             </h1>
             <p className="mt-6 max-w-md text-base leading-relaxed text-bone-muted">

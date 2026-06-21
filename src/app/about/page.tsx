@@ -32,8 +32,8 @@ export default function AboutPage() {
       <section className="border-b border-ink-600">
         <div className="nox-container py-20 lg:py-28">
           <Reveal>
-            <p className="nox-eyebrow">The NOX story</p>
-            <h1 className="mt-5 max-w-4xl font-display text-5xl font-extrabold uppercase leading-[0.9] tracking-tightest text-bone sm:text-7xl">
+            <p className="nox-eyebrow">[ About — the NOX story ]</p>
+            <h1 className="mt-5 max-w-4xl font-display text-5xl font-black uppercase leading-[0.85] tracking-tightest text-bone sm:text-7xl">
               Clean pieces only.
             </h1>
           </Reveal>
