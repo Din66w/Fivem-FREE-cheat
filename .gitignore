@@ -30,3 +30,7 @@ next-env.d.ts
 # editor
 .vscode/
 .idea/
+
+# local visual audit (not part of the app)
+/audit
+audit.mjs
