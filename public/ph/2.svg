@@ -1,16 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200">
   <defs>
-    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#1c1c1c"/>
-      <stop offset="1" stop-color="#070707"/>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0" stop-color="#2e2e2e"/>
+      <stop offset="1" stop-color="#141414"/>
     </linearGradient>
-    <radialGradient id="s2" cx="0.5" cy="0.32" r="0.85">
-      <stop offset="0" stop-color="#ffffff" stop-opacity="0.07"/>
-      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    <radialGradient id="lt2" cx="0.5" cy="0.34" r="0.72">
+      <stop offset="0" stop-color="#3e3e3e"/>
+      <stop offset="1" stop-color="#3e3e3e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vg2" cx="0.5" cy="0.5" r="0.75">
+      <stop offset="0.55" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.5"/>
     </radialGradient>
   </defs>
-  <rect width="900" height="1200" fill="url(#g2)"/>
-  <rect width="900" height="1200" fill="url(#s2)"/>
-  <text x="450" y="690" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="900" font-size="420" fill="#ffffff" fill-opacity="0.045">02</text>
-  <text x="450" y="1090" text-anchor="middle" font-family="ui-monospace, monospace" font-size="22" letter-spacing="9" fill="#5f5f5f">NOX — ARCHIVE</text>
+  <rect width="900" height="1200" fill="url(#bg2)"/>
+  <ellipse cx="450" cy="420" rx="560" ry="470" fill="url(#lt2)"/>
+  <rect width="900" height="1200" fill="url(#vg2)"/>
+  <text x="450" y="660" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="900" font-size="150" letter-spacing="6" fill="#ffffff" fill-opacity="0.06">NOX</text>
+  <text x="60" y="1130" font-family="ui-monospace, monospace" font-size="22" letter-spacing="6" fill="#8a8a8a">ARCHIVE / 02</text>
 </svg>
