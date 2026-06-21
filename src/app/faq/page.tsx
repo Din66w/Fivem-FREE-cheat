@@ -84,10 +84,10 @@ const SECTIONS: { id: string; title: string; items: QA[] }[] = [
 
 export default function FAQPage() {
   return (
-    <div className="nox-container py-16 lg:py-24">
+    <div className="nox-container py-20 lg:py-28">
       <Reveal>
-        <p className="nox-eyebrow">Help &amp; info</p>
-        <h1 className="mt-5 font-display text-5xl font-extrabold uppercase tracking-tightest text-bone sm:text-6xl">
+        <p className="nox-eyebrow">[ Help — shipping · returns · authenticity ]</p>
+        <h1 className="mt-5 font-display text-5xl font-black uppercase tracking-tightest text-bone sm:text-6xl lg:text-7xl">
           FAQ
         </h1>
       </Reveal>
