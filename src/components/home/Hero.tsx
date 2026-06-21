@@ -185,15 +185,6 @@ export function Hero({ products }: { products: Product[] }) {
           );
         })}
       </div>
-
-      {/* archive marketplace line */}
-      <Link
-        href="/shop"
-        className="group flex items-center justify-center gap-3 border-t border-ink-600 py-4 text-[11px] font-medium uppercase tracking-[0.25em] text-ash transition-colors hover:text-bone"
-      >
-        Enter the archive
-        <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-      </Link>
     </section>
   );
 }

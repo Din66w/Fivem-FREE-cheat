@@ -28,7 +28,7 @@ export function RecentlyViewed({
   if (products.length === 0) return null;
 
   return (
-    <section className="nox-container cv-auto py-16 lg:py-24">
+    <section className="nox-container cv-auto py-20 lg:py-28">
       <SectionHeading eyebrow="Pick up where you left off" title="Recently Viewed" />
       <ProductRail products={products} />
     </section>
