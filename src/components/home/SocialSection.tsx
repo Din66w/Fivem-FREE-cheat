@@ -48,7 +48,7 @@ export function SocialSection() {
                 className="group relative block aspect-[9/16] overflow-hidden bg-ink-800"
               >
                 <Image
-                  src={`https://picsum.photos/seed/nox-${post.seed}/540/960`}
+                  src={`/ph/${(i % 6) + 1}.svg`}
                   alt="NOX on TikTok"
                   fill
                   loading="lazy"
