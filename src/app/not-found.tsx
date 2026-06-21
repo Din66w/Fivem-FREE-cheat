@@ -18,11 +18,11 @@ export default function NotFound() {
 
       <div className="nox-container relative flex flex-col items-center py-20">
         <Image
-          src="/nox-logo.jpg"
+          src="/nox-logo-white.png"
           alt="NOX"
-          width={72}
-          height={72}
-          className="rounded-full"
+          width={846}
+          height={380}
+          className="h-9 w-auto"
         />
         <p className="mt-8 font-mono text-xs uppercase tracking-[0.35em] text-ash">
           Error 404

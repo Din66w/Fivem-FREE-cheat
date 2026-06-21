@@ -55,12 +55,12 @@ export function LoadingScreen() {
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
             <Image
-              src="/nox-logo.jpg"
+              src="/nox-logo-white.png"
               alt="NOX"
-              width={120}
-              height={120}
+              width={846}
+              height={380}
               priority
-              className="rounded-full"
+              className="h-14 w-auto sm:h-16"
             />
           </motion.div>
 
