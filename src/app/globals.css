@@ -94,6 +94,12 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+  /* Skip rendering work for offscreen sections — improves mobile
+     scroll & paint performance. Progressive: ignored where unsupported. */
+  .cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 720px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

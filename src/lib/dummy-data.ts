@@ -350,6 +350,7 @@ export const DUMMY_PRODUCTS: Product[] = [
     featured: true,
     trending: true,
     publishedAt: '2026-06-14T09:00:00Z',
-    available: true,
+    // Showcases the Sold Out state — a grail that's already gone.
+    available: false,
   }),
 ];

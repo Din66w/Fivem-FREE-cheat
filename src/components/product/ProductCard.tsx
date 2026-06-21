@@ -20,6 +20,7 @@ export function ProductCard({ product, priority, className }: ProductCardProps) 
   const discount = discountPercent(product.price, product.compareAtPrice);
   const primary = product.images[0];
   const secondary = product.images[1] ?? product.images[0];
+  const soldOut = !product.available;
 
   return (
     <motion.article
@@ -35,16 +36,30 @@ export function ProductCard({ product, priority, className }: ProductCardProps) 
             fill
             sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 100vw"
             priority={priority}
-            className="object-cover transition-opacity duration-700 ease-nox group-hover:opacity-0"
+            className={cn(
+              'object-cover transition-opacity duration-700 ease-nox',
+              soldOut ? 'opacity-60 grayscale' : 'group-hover:opacity-0',
+            )}
           />
-          <Image
-            src={secondary.url}
-            alt=""
-            aria-hidden
-            fill
-            sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 100vw"
-            className="scale-105 object-cover opacity-0 transition-all duration-[900ms] ease-nox group-hover:scale-100 group-hover:opacity-100"
-          />
+          {!soldOut && (
+            <Image
+              src={secondary.url}
+              alt=""
+              aria-hidden
+              fill
+              sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 100vw"
+              className="scale-105 object-cover opacity-0 transition-all duration-[900ms] ease-nox group-hover:scale-100 group-hover:opacity-100"
+            />
+          )}
+
+          {/* Sold out overlay */}
+          {soldOut && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="border border-bone/40 bg-ink/70 px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.25em] text-bone backdrop-blur">
+                Sold Out
+              </span>
+            </div>
+          )}
 
           {/* Depth veil for badge / button legibility */}
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-ink/20 opacity-70" />
@@ -54,7 +69,7 @@ export function ProductCard({ product, priority, className }: ProductCardProps) 
             <span className="bg-bone px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.18em] text-ink">
               {product.condition}
             </span>
-            {discount && (
+            {discount && !soldOut && (
               <span className="bg-ink/90 px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.18em] text-bone backdrop-blur">
                 −{discount}%
               </span>
@@ -67,16 +82,18 @@ export function ProductCard({ product, priority, className }: ProductCardProps) 
           </div>
 
           {/* Quick add */}
-          <button
-            type="button"
-            onClick={(e) => {
-              e.preventDefault();
-              openQuickView(product);
-            }}
-            className="absolute inset-x-3 bottom-3 flex translate-y-3 items-center justify-center gap-2 bg-bone py-3.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-ink opacity-0 transition-all duration-300 ease-nox hover:bg-white group-hover:translate-y-0 group-hover:opacity-100"
-          >
-            <BagIcon className="h-4 w-4" /> Quick Add
-          </button>
+          {!soldOut && (
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                openQuickView(product);
+              }}
+              className="absolute inset-x-3 bottom-3 flex translate-y-3 items-center justify-center gap-2 bg-bone py-3.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-ink opacity-0 transition-all duration-300 ease-nox hover:bg-white group-hover:translate-y-0 group-hover:opacity-100"
+            >
+              <BagIcon className="h-4 w-4" /> Quick Add
+            </button>
+          )}
         </div>
       </Link>
 

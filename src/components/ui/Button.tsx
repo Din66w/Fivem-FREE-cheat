@@ -20,6 +20,7 @@ const sizes: Record<Size, string> = {
 const baseClass =
   'inline-flex items-center justify-center gap-2 font-medium uppercase tracking-[0.18em] ' +
   'transition-all duration-300 ease-nox disabled:cursor-not-allowed disabled:opacity-40 ' +
+  'hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.985] ' +
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bone/60';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

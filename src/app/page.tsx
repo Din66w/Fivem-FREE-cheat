@@ -14,6 +14,7 @@ import { Trending } from '@/components/home/Trending';
 import { NewsletterSection } from '@/components/home/NewsletterSection';
 import { SocialSection } from '@/components/home/SocialSection';
 import { RecentlyViewed } from '@/components/product/RecentlyViewed';
+import { BrandMarquee } from '@/components/home/BrandMarquee';
 import { MarbleDivider } from '@/components/ui/MarbleDivider';
 
 // Re-fetch product rails periodically once connected to Shopify.
@@ -31,6 +32,7 @@ export default async function HomePage() {
     <>
       <Hero />
       <TrustSection />
+      <BrandMarquee />
       <MarbleDivider label="clean pieces only." />
       <NewArrivals products={arrivals} />
       <FeaturedProducts products={featured} />
