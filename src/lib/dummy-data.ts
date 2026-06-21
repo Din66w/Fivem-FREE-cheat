@@ -12,10 +12,12 @@ import type { Category, Product } from './types';
 
 // Curated pools — values are file indices in /public/products (pN.jpg).
 // Editorial model + rack shots read as styled looks for any piece.
+// pool[0] is the category "hero" shot and is always used as the primary
+// (card / first gallery) image; later views vary for visual interest.
 const IMAGES_BY_CATEGORY: Record<Category, number[]> = {
-  Streetwear: [1, 6, 7, 11],
+  Streetwear: [6, 1, 7, 11],
   Vintage: [2, 9, 4, 3],
-  Designer: [3, 13, 1, 11],
+  Designer: [13, 3, 1, 11],
   'Football Shirts': [16, 2, 9],
   Y2K: [8, 11, 6],
   Accessories: [2, 9, 4],
@@ -23,6 +25,7 @@ const IMAGES_BY_CATEGORY: Record<Category, number[]> = {
 
 function pickImage(category: Category, seed: string, idx: number): string {
   const pool = IMAGES_BY_CATEGORY[category] ?? [2, 9, 1];
+  if (idx === 0) return `/products/p${pool[0]}.jpg`;
   let n = idx;
   for (let i = 0; i < seed.length; i += 1) n += seed.charCodeAt(i);
   return `/products/p${pool[n % pool.length]}.jpg`;
