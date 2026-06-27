@@ -10,22 +10,23 @@ import type { Product } from './types';
 // ──────────────────────────────────────────────────────────────
 
 // Product id → ordered real photos (first = card / hero image).
+// Spread so no two cards visible together in a rail repeat an image.
 const PRODUCT_IMAGES: Record<string, string[]> = {
-  'nox-001': ['p6', 'p9'], // technical puffer — streetwear model + outerwear rack
+  'nox-001': ['p6', 'p9'], // technical puffer — streetwear model
   'nox-002': ['p7', 'p6'], // cargo pant — model
-  'nox-003': ['p1', 'p6'], // essentials hoodie — clean top
+  'nox-003': ['p1', 'p11'], // essentials hoodie — clean top
   'nox-004': ['p5', 'p11'], // 8-ball graphic tee
   'nox-005': ['p11', 'p1'], // owners' club washed tee
-  'nox-006': ['p16', 'p5'], // juventus shirt — striped flatlay
-  'nox-007': ['p9', 'p6'], // nike windbreaker — outerwear rack
+  'nox-006': ['p16', 'p2'], // juventus shirt — striped flatlay
+  'nox-007': ['p9', 'p3'], // nike windbreaker — outerwear rack
   'nox-008': ['p8', 'p2'], // baggy carpenter denim
-  'nox-009': ['p9', 'p4'], // beta gore-tex shell
-  'nox-010': ['p9', 'p2'], // carhartt detroit jacket
+  'nox-009': ['p3', 'p4'], // beta gore-tex shell — outerwear
+  'nox-010': ['p4', 'p9'], // carhartt detroit jacket
   'nox-011': ['p11', 'p5'], // cotton wreath black tee
-  'nox-012': ['p6', 'p16'], // polo sport cap — model wearing cap
-  'nox-013': ['p5', 'p16'], // ac milan shirt
-  'nox-014': ['p6', 'p7'], // knit balaclava — model
-  'nox-015': ['p9', 'p3'], // cropped leather bomber
+  'nox-012': ['p10', 'p7'], // polo sport cap — streetwear gear
+  'nox-013': ['p5', 'p16'], // ac milan shirt — printed
+  'nox-014': ['p7', 'p6'], // knit balaclava — model
+  'nox-015': ['p9', 'p3'], // cropped leather bomber — jackets
   'nox-016': ['p6', 'p1'], // box logo hoodie
 };
 
