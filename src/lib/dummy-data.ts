@@ -3,32 +3,30 @@ import type { Product } from './types';
 // ──────────────────────────────────────────────────────────────
 // Demo catalog — used whenever Shopify credentials are absent.
 //
-// Each product maps to a clean technical garment flat (white line on a
-// studio-gray card) in /public/garments, keyed to its ACTUAL garment so
-// a listing always shows the right type — a puffer shows a puffer, a
-// football shirt a jersey, etc. Real lifestyle photography is used only
-// in the editorial/social sections. Swap for your own product shots /
-// Shopify CDN when ready and this whole layer drops out.
+// Each piece maps to real editorial apparel photography in
+// /public/products, chosen to fit the garment (graphic tees → graphic
+// tee shots, denim → denim, outerwear → jackets, etc.). Swap for your
+// own product shots / Shopify CDN when ready and this layer drops out.
 // ──────────────────────────────────────────────────────────────
 
-// Product id → garment flat (file in /public/garments).
-const GARMENT: Record<string, string> = {
-  'nox-001': 'puffer',
-  'nox-002': 'cargo',
-  'nox-003': 'hoodie',
-  'nox-004': 'tee',
-  'nox-005': 'tee',
-  'nox-006': 'jersey',
-  'nox-007': 'jacket',
-  'nox-008': 'jeans',
-  'nox-009': 'jacket',
-  'nox-010': 'jacket',
-  'nox-011': 'tee',
-  'nox-012': 'cap',
-  'nox-013': 'jersey',
-  'nox-014': 'balaclava',
-  'nox-015': 'bomber',
-  'nox-016': 'hoodie',
+// Product id → ordered real photos (first = card / hero image).
+const PRODUCT_IMAGES: Record<string, string[]> = {
+  'nox-001': ['p6', 'p9'], // technical puffer — streetwear model + outerwear rack
+  'nox-002': ['p7', 'p6'], // cargo pant — model
+  'nox-003': ['p1', 'p6'], // essentials hoodie — clean top
+  'nox-004': ['p5', 'p11'], // 8-ball graphic tee
+  'nox-005': ['p11', 'p1'], // owners' club washed tee
+  'nox-006': ['p16', 'p5'], // juventus shirt — striped flatlay
+  'nox-007': ['p9', 'p6'], // nike windbreaker — outerwear rack
+  'nox-008': ['p8', 'p2'], // baggy carpenter denim
+  'nox-009': ['p9', 'p4'], // beta gore-tex shell
+  'nox-010': ['p9', 'p2'], // carhartt detroit jacket
+  'nox-011': ['p11', 'p5'], // cotton wreath black tee
+  'nox-012': ['p6', 'p16'], // polo sport cap — model wearing cap
+  'nox-013': ['p5', 'p16'], // ac milan shirt
+  'nox-014': ['p6', 'p7'], // knit balaclava — model
+  'nox-015': ['p9', 'p3'], // cropped leather bomber
+  'nox-016': ['p6', 'p1'], // box logo hoodie
 };
 
 const GBP = 'GBP';
@@ -41,18 +39,18 @@ function p(
     imageSeeds: string[];
   },
 ): Product {
-  const { price, compareAt, sizes, imageSeeds, ...rest } = partial;
-  // One clean garment flat per piece, keyed to its actual type.
-  const flat = `/garments/${GARMENT[rest.id] ?? 'tee'}.svg`;
+  const { price, compareAt, sizes, imageSeeds: _seeds, ...rest } = partial;
+  void _seeds;
+  const photos = PRODUCT_IMAGES[rest.id] ?? ['p2'];
   return {
     ...rest,
     price: { amount: price, currencyCode: GBP },
     compareAtPrice: compareAt ? { amount: compareAt, currencyCode: GBP } : undefined,
-    images: imageSeeds.slice(0, 1).map(() => ({
-      url: flat,
-      altText: `${rest.title} — ${rest.brand}`,
-      width: 900,
-      height: 1200,
+    images: photos.map((name, i) => ({
+      url: `/products/${name}.jpg`,
+      altText: `${rest.title} — ${rest.brand} (view ${i + 1})`,
+      width: 1000,
+      height: 1250,
     })),
     variants: sizes.map((size, i) => ({
       id: `${rest.id}-v${i}`,
