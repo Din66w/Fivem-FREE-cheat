@@ -17,7 +17,7 @@ export function BrandStatement() {
           alt="NOX archive editorial"
           fill
           sizes="100vw"
-          className="object-cover opacity-40 grayscale"
+          className="animate-kenburns object-cover opacity-40 grayscale"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/70" />
 

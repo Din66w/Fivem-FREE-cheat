@@ -25,7 +25,9 @@ export function RecentlyViewed({
     .map((h) => pool.find((p) => p.handle === h))
     .filter((p): p is Product => Boolean(p));
 
-  if (products.length === 0) return null;
+  // Only show once there are enough pieces to fill a row — a lone card
+  // stranded in a wide rail looks sparse/cheap.
+  if (products.length < 4) return null;
 
   return (
     <section className="nox-container cv-auto py-20 lg:py-28">
