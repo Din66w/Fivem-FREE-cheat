@@ -50,13 +50,19 @@ export function TrustSection() {
       <div className="nox-container grid grid-cols-2 gap-px overflow-hidden bg-ink-600 lg:grid-cols-4">
         {ITEMS.map(({ Icon, title, body }, i) => (
           <Reveal key={title} index={i}>
-            <div className="flex h-full flex-col items-center gap-4 bg-ink-900/70 px-6 py-10 text-center backdrop-blur lg:py-14">
-              <Icon className="h-7 w-7 text-bone" />
-              <div>
+            <div className="group relative flex h-full flex-col items-center gap-4 overflow-hidden bg-ink-900/70 px-6 py-10 text-center backdrop-blur transition-colors duration-500 hover:bg-ink-800 lg:py-14">
+              {/* top accent line grows on hover */}
+              <span className="pointer-events-none absolute inset-x-0 top-0 mx-auto h-px w-0 bg-bone/60 transition-all duration-500 ease-nox group-hover:w-full" />
+              {/* soft glow on hover */}
+              <span className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.05),transparent_70%)]" />
+              <Icon className="relative h-7 w-7 text-bone transition-transform duration-500 ease-nox group-hover:-translate-y-1 group-hover:scale-110" />
+              <div className="relative">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-bone">
                   {title}
                 </p>
-                <p className="mt-2 text-xs leading-relaxed text-ash">{body}</p>
+                <p className="mt-2 text-xs leading-relaxed text-ash transition-colors duration-300 group-hover:text-bone-muted">
+                  {body}
+                </p>
               </div>
             </div>
           </Reveal>

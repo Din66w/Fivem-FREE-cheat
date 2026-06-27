@@ -47,11 +47,16 @@ const config: Config = {
         shimmer: {
           '100%': { transform: 'translateX(100%)' },
         },
+        kenburns: {
+          '0%': { transform: 'scale(1)' },
+          '100%': { transform: 'scale(1.12)' },
+        },
       },
       animation: {
         marquee: 'marquee 28s linear infinite',
         'fade-up': 'fade-up 0.7s cubic-bezier(0.16,1,0.3,1) forwards',
         shimmer: 'shimmer 1.6s infinite',
+        kenburns: 'kenburns 20s ease-in-out infinite alternate',
       },
       transitionTimingFunction: {
         nox: 'cubic-bezier(0.16, 1, 0.3, 1)',
