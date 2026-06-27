@@ -10,6 +10,7 @@ import { QuickView } from '@/components/product/QuickView';
 import { NewsletterPopup } from '@/components/common/NewsletterPopup';
 import { LoadingScreen } from '@/components/common/LoadingScreen';
 import { GrainOverlay } from '@/components/common/GrainOverlay';
+import { ScrollProgress } from '@/components/common/ScrollProgress';
 
 /**
  * Composes every client-side provider and mounts the global overlays
@@ -22,6 +23,7 @@ export function Providers({ children }: { children: ReactNode }) {
         <RecentlyViewedProvider>
           <CartProvider>
             {children}
+            <ScrollProgress />
             <GrainOverlay />
             <LoadingScreen />
             <CartDrawer />
